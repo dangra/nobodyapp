@@ -25,3 +25,20 @@ $ fly logs
 2023-02-28T16:14:44Z app[6e82751f703287] scl [info]nobody
 2023-02-28T16:14:44Z app[6e82751f703287] scl [info]/data/file created or updated successfully
 ```
+
+## SSH console
+
+```
+$ fly ssh console
+/ # ps axf |grep nobody
+  522 nobody    0:00 {init.sh} /bin/sh /init.sh
+  529 nobody    0:00 sleep inf
+  537 root      0:00 grep nobody
+
+/ # ls /data/ -la
+total 24
+drwxr-xr-x    3 nobody   nobody        4096 Feb 28 16:14 .
+drwxr-xr-x   21 root     root          4096 Feb 28 16:21 ..
+-rw-r--r--    1 nobody   nobody           0 Feb 28 16:14 file
+drwx------    2 root     root         16384 Feb 28 16:14 lost+found
+```
