@@ -35,10 +35,12 @@ $ fly ssh console
   529 nobody    0:00 sleep inf
   537 root      0:00 grep nobody
 
-/ # ls /data/ -la
-total 24
-drwxr-xr-x    3 nobody   nobody        4096 Feb 28 16:14 .
-drwxr-xr-x   21 root     root          4096 Feb 28 16:21 ..
--rw-r--r--    1 nobody   nobody           0 Feb 28 16:14 file
-drwx------    2 root     root         16384 Feb 28 16:14 lost+found
+/ # find /data -exec ls -ld {} \;
+drwxr-xr-x    4 nobody   nobody        4096 Feb 28 16:28 /data
+-rw-r--r--    1 nobody   nobody           0 Feb 28 16:28 /data/file
+drwxr-xr-x    3 nobody   nobody        4096 Feb 28 16:28 /data/a
+drwxr-xr-x    3 nobody   nobody        4096 Feb 28 16:28 /data/a/b
+drwxr-xr-x    2 nobody   nobody        4096 Feb 28 16:28 /data/a/b/c
+-rw-r--r--    1 nobody   nobody           0 Feb 28 16:28 /data/a/b/c/d
+drwx------    2 root     root         16384 Feb 28 16:14 /data/lost+found
 ```

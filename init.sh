@@ -7,4 +7,9 @@ if touch /data/file; then
 else
 	echo "Error creating /data/file"
 fi
+
+# try creating subdirs
+mkdir -p /data/a/b/c || echo "ERROR"
+touch /data/a/b/c/d || echo "ERROR"
+
 sleep inf
