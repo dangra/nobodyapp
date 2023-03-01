@@ -1,7 +1,7 @@
 ## Create and and deploy
 
 ```
-fly apps create --machines nobodyapp
+fly apps create nobodyapp
 fly vol create data
 fly deploy
 ```
@@ -10,20 +10,32 @@ fly deploy
 
 ```
 $ fly logs
-2023-02-28T16:14:27Z runner[6e82751f703287] scl [info]Pulling container image
-2023-02-28T16:14:29Z runner[6e82751f703287] scl [info]Unpacking image
-2023-02-28T16:14:37Z runner[6e82751f703287] scl [info]Setting up volume 'data'
-2023-02-28T16:14:37Z runner[6e82751f703287] scl [info]Uninitialized volume 'data', initializing...
-2023-02-28T16:14:37Z runner[6e82751f703287] scl [info]Encrypting volume
-2023-02-28T16:14:42Z runner[6e82751f703287] scl [info]Opening encrypted volume
-2023-02-28T16:14:44Z runner[6e82751f703287] scl [info]Formatting volume
-2023-02-28T16:14:44Z runner[6e82751f703287] scl [info]Configuring firecracker
-2023-02-28T16:14:44Z app[6e82751f703287] scl [info]Starting init (commit: 08b4c2b)...
-2023-02-28T16:14:44Z app[6e82751f703287] scl [info]Mounting /dev/vdb at /data w/ uid: 65534, gid: 65534 and chmod 0755
-2023-02-28T16:14:44Z app[6e82751f703287] scl [info]Preparing to run: `/init.sh` as nobody
-2023-02-28T16:14:44Z app[6e82751f703287] scl [info]2023/02/28 16:14:44 listening on [fdaa:0:5ea6:a7b:d33c:3d99:15c1:2]:22 (DNS: [fdaa::3]:53)
-2023-02-28T16:14:44Z app[6e82751f703287] scl [info]nobody
-2023-02-28T16:14:44Z app[6e82751f703287] scl [info]/data/file created or updated successfully
+2023-03-01T17:27:31Z runner[2d46f629] scl [info]Starting instance
+2023-03-01T17:27:31Z runner[2d46f629] scl [info]Configuring virtual machine
+2023-03-01T17:27:31Z runner[2d46f629] scl [info]Pulling container image
+2023-03-01T17:27:32Z runner[2d46f629] scl [info]Unpacking image
+2023-03-01T17:27:32Z runner[2d46f629] scl [info]Preparing kernel init
+2023-03-01T17:27:32Z runner[2d46f629] scl [info]Setting up volume 'data'
+2023-03-01T17:27:32Z runner[2d46f629] scl [info]Uninitialized volume 'data', initializing...
+2023-03-01T17:27:32Z runner[2d46f629] scl [info]Encrypting volume
+2023-03-01T17:27:42Z runner[2d46f629] scl [info]Opening encrypted volume
+2023-03-01T17:27:44Z runner[2d46f629] scl [info]Formatting volume
+2023-03-01T17:27:45Z runner[2d46f629] scl [info]Configuring firecracker
+2023-03-01T17:27:45Z runner[2d46f629] scl [info]Starting virtual machine
+2023-03-01T17:27:45Z app[2d46f629] scl [info]Starting init (commit: 08b4c2b)...
+2023-03-01T17:27:45Z app[2d46f629] scl [info]Mounting /dev/vdc at /data w/ uid: 65534, gid: 65534 and chmod 0755
+2023-03-01T17:27:45Z app[2d46f629] scl [info]Preparing to run: `/init.sh` as nobody
+2023-03-01T17:27:45Z app[2d46f629] scl [info]2023/03/01 17:27:45 listening on [fdaa:0:5ea6:a7b:100:5:5ea5:2]:22 (DNS: [fdaa::3]:53)
+2023-03-01T17:27:45Z app[2d46f629] scl [info]/init.sh running as 'nobody'
+2023-03-01T17:27:45Z app[2d46f629] scl [info]/data/file created or updated successfully
+2023-03-01T17:27:45Z app[2d46f629] scl [info]drwxr-xr-x    4 nobody   nobody        4096 Mar  1 17:27 /data
+2023-03-01T17:27:45Z app[2d46f629] scl [info]drwx------    2 root     root         16384 Mar  1 17:27 /data/lost+found
+2023-03-01T17:27:45Z app[2d46f629] scl [info]find: /data/lost+found: Permission denied
+2023-03-01T17:27:45Z app[2d46f629] scl [info]drwxr-xr-x    3 nobody   nobody        4096 Mar  1 17:27 /data/a
+2023-03-01T17:27:45Z app[2d46f629] scl [info]drwxr-xr-x    3 nobody   nobody        4096 Mar  1 17:27 /data/a/b
+2023-03-01T17:27:45Z app[2d46f629] scl [info]drwxr-xr-x    2 nobody   nobody        4096 Mar  1 17:27 /data/a/b/c
+2023-03-01T17:27:45Z app[2d46f629] scl [info]-rw-r--r--    1 nobody   nobody           0 Mar  1 17:27 /data/a/b/c/d
+2023-03-01T17:27:45Z app[2d46f629] scl [info]-rw-r--r--    1 nobody   nobody           0 Mar  1 17:27 /data/file
 ```
 
 ## SSH console
