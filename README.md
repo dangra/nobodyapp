@@ -38,17 +38,6 @@ $ fly logs
 2023-03-01T17:27:45Z app[2d46f629] scl [info]-rw-r--r--    1 nobody   nobody           0 Mar  1 17:27 /data/file
 ```
 
-## SSH console
-
-```
-$ fly ssh console
-/ # ps axf |grep nobody
-  522 nobody    0:00 {init.sh} /bin/sh /init.sh
-  529 nobody    0:00 sleep inf
-  537 root      0:00 grep nobody
-
-```
-
 After restarting the app with `fly apps restart nobodyapp`, file's permissions looks good too
 
 ```
@@ -77,4 +66,15 @@ After restarting the app with `fly apps restart nobodyapp`, file's permissions l
 2023-03-01T17:29:40Z app[f8a8c7a9] scl [info]drwxr-xr-x    2 nobody   nobody        4096 Mar  1 17:27 /data/a/b/c
 2023-03-01T17:29:40Z app[f8a8c7a9] scl [info]-rw-r--r--    1 nobody   nobody           0 Mar  1 17:29 /data/a/b/c/d
 2023-03-01T17:29:40Z app[f8a8c7a9] scl [info]-rw-r--r--    1 nobody   nobody           0 Mar  1 17:29 /data/file
+```
+
+## SSH console
+
+```
+$ fly ssh console
+/ # ps axf |grep nobody
+  522 nobody    0:00 {init.sh} /bin/sh /init.sh
+  529 nobody    0:00 sleep inf
+  537 root      0:00 grep nobody
+
 ```
